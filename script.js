@@ -27,24 +27,24 @@ function sercxi() {
   let rezulto = disigitaj_vortoj.filter(function (str) {
     return sxablono_regex.test(str);
   });
-  
+
   //[3] แสดงผล
   //สร้างข้อความ หากข้อความค้นหาว่างเปล่า
   if (str_sxablono === "") {
     rezulto = "ไม่พบคำค้นหา";
-    document.getElementById("output").innerHTML = rezulto;
+    return document.getElementById("output").innerHTML = "<hr>" + rezulto;
   }
-  
+
   //แปลงวัตถุ (rezulto) เป็นสตริง
   let sercxitaj_vortoj = rezulto.toString().replace(/,(?!\s)/g, "<br><hr>");
-  
+
   //[4]ไฮไลท์คำใน sercxitaj_vortoj
   //hilight คำที่ค้นหา
   sercxitaj_vortoj = sercxitaj_vortoj.replace(
     new RegExp(`${str_sxablono}`, "gi"),
     "<b>" + str_sxablono + "</b>"
   );
-  
+
   //นำออกแสดงผล
   //if ถ้า sercxitaj_vortoj ไม่เท่ากับ "" ให้แสดงข้อความ ไม่พบคำค้นหา
   if (sercxitaj_vortoj !== "") {
